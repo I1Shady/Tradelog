@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradeLog</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="/" class="logo">TradeLog</a>
+
+        <nav class="nav-actions">
+            <label class="switch" aria-label="Toggle theme">
+                <input type="checkbox" id="themeToggle">
+                <span class="thumb">
+                    <div class="cranium"></div>
+                    <div class="mouth"></div>
+                </span>
+                <span class="arm-wrapper">
+                    <span class="arm">
+                        <span class="bone"></span>
+                        <span class="bone"></span>
+                        <span class="hand">
+                            <span class="bone"></span>
+                            <span class="bone"></span>
+                            <span class="bone"></span>
+                            <span class="bone"></span>
+                        </span>
+                        <span class="big"></span>
+                    </span>
+                </span>
+            </label>
+
+            <span class="nav-divider"></span>
+
+            <div class="user-profile" id="loginButton" aria-label="User Login Button" tabindex="0" role="button">
+                <div class="user-profile-inner">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g data-name="Layer 2">
+                            <path d="m15.626 11.769a6 6 0 1 0-7.252 0
+                                9.008 9.008 0 0 0-5.374 8.231
+                                3 3 0 0 0 3 3h12a3 3 0 0 0 3-3
+                                9.008 9.008 0 0 0-5.374-8.231zm-7.626-4.769
+                                a4 4 0 1 1 4 4 4 4 0 0 1-4-4zm10 14h-12
+                                a1 1 0 0 1-1-1 7 7 0 0 1 14 0
+                                1 1 0 0 1-1 1z"/>
+                        </g>
+                    </svg>
+                    <p>Log In</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="hero">
+        <section class="hero-content">
+            <h1 class="hero-title">Trade Journal</h1>
+            <p class="hero-subtitle">Track your trades.</p>
+            <button class="open-button" id="openJournal">
+                <span>Open</span>
+                <span class="arrow">→</span>
+            </button>
+        </section>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

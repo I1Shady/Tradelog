@@ -1,0 +1,301 @@
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        height: 85px;
+
+        padding:
+            0 25px;
+    }
+
+
+    .logo {
+
+        font-size: 23px;
+    }
+
+
+    .nav-actions {
+
+        gap: 16px;
+    }
+
+
+    .nav-divider {
+
+        height: 27px;
+    }
+
+
+    .user-profile {
+
+        width: 115px;
+
+        height: 46px;
+
+        border-radius: 13px;
+    }
+
+
+    .user-profile-inner {
+
+        width: 111px;
+
+        height: 42px;
+
+        border-radius: 11px;
+
+        font-size: 14px;
+
+        gap: 8px;
+    }
+
+
+    .user-profile-inner svg {
+
+        width: 19px;
+
+        height: 19px;
+    }
+
+
+    .switch {
+
+        width: 52px;
+
+        height: 27px;
+
+        border-radius: 27px;
+    }
+
+
+    .thumb {
+
+        width: 23px;
+
+        height: 23px;
+
+        top: 2px;
+
+        left:
+            calc(100% - 25px);
+    }
+
+
+    .switch input:checked ~ .thumb {
+
+        left: 2px;
+    }
+
+
+    @keyframes move-skull-right {
+
+        0% {
+            left: 2px;
+        }
+
+        100% {
+            left:
+                calc(100% - 25px);
+        }
+    }
+
+
+    @keyframes move-skull-left {
+
+        0% {
+            left:
+                calc(100% - 25px);
+        }
+
+        100% {
+            left: 2px;
+        }
+    }
+
+
+    .hero-content {
+
+        padding:
+            0 20px;
+    }
+
+
+    .hero-title {
+
+        font-size: 58px;
+
+        letter-spacing: -3px;
+
+        margin-bottom: 28px;
+    }
+
+
+    .hero-subtitle {
+
+        font-size: 21px;
+
+        margin-bottom: 55px;
+    }
+
+
+    .open-button {
+
+        width: 210px;
+
+        height: 64px;
+
+        font-size: 22px;
+
+        border-radius:
+            var(--radius-md);
+    }
+
+
+    .arrow {
+
+        font-size: 27px;
+    }
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 450px) {
+
+    .navbar {
+
+        padding:
+            0 18px;
+    }
+
+
+    .logo {
+
+        font-size: 21px;
+    }
+
+
+    .nav-actions {
+
+        gap: 10px;
+    }
+
+
+    .nav-divider {
+
+        height: 24px;
+    }
+
+
+    .user-profile {
+
+        width: 94px;
+
+        height: 40px;
+
+        border-radius: 11px;
+    }
+
+
+    .user-profile-inner {
+
+        width: 90px;
+
+        height: 36px;
+
+        border-radius: 9px;
+
+        font-size: 12px;
+
+        gap: 6px;
+    }
+
+
+    .user-profile-inner svg {
+
+        width: 17px;
+
+        height: 17px;
+    }
+
+
+    .switch {
+
+        width: 46px;
+
+        height: 24px;
+
+        border-radius: 24px;
+    }
+
+
+    .thumb {
+
+        width: 20px;
+
+        height: 20px;
+
+        top: 2px;
+
+        left:
+            calc(100% - 22px);
+    }
+
+
+    .switch input:checked ~ .thumb {
+
+        left: 2px;
+    }
+
+
+    @keyframes move-skull-right {
+
+        0% {
+            left: 2px;
+        }
+
+        100% {
+            left:
+                calc(100% - 22px);
+        }
+    }
+
+
+    @keyframes move-skull-left {
+
+        0% {
+            left:
+                calc(100% - 22px);
+        }
+
+        100% {
+            left: 2px;
+        }
+    }
+
+
+    .hero-title {
+
+        font-size: 45px;
+    }
+
+
+    .hero-subtitle {
+
+        font-size: 18px;
+    }
+
+
+    .open-button {
+
+        width: 190px;
+    }
+}

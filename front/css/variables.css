@@ -1,0 +1,129 @@
+/* =====================================================
+   LIGHT THEME
+===================================================== */
+
+:root {
+
+    /* =========================
+       COLORS
+    ========================== */
+
+    --color-background: #ffffff;
+
+    --color-primary: #111820;
+
+    --color-text: #1b2026;
+
+    --color-text-muted: #4c555f;
+
+    --color-border: #d8dce0;
+
+    --color-white: #ffffff;
+
+
+    /* =========================
+       BUTTON
+    ========================== */
+
+    --color-button-start: #17212c;
+
+    --color-button-end: #0e161e;
+
+
+    /* =========================
+       LOGIN
+    ========================== */
+
+    --card-background: #ffffff;
+
+    --card-border: #e8ebee;
+
+    --input-border: #d9dee3;
+
+    --input-hover: #f8f9fa;
+
+    --button-background: #10171e;
+
+    --button-text: #ffffff;
+
+
+    /* =========================
+       TYPOGRAPHY
+    ========================== */
+
+    --font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+
+    /* =========================
+       RADIUS
+    ========================== */
+
+    --radius-sm: 8px;
+
+    --radius-md: 11px;
+
+    --radius-lg: 13px;
+
+
+    /* =========================
+       ANIMATION
+    ========================== */
+
+    --transition-fast: 0.2s ease;
+
+    --transition-theme: 0.25s ease;
+}
+
+
+
+/* =====================================================
+   DARK THEME
+===================================================== */
+
+body.dark {
+
+    --color-background: #0b1016;
+
+    --color-primary: #f4f6f8;
+
+    --color-text: #edf0f3;
+
+    --color-text-muted: #aeb6bf;
+
+    --color-border: #303841;
+
+    --color-white: #0b1016;
+
+
+    /* =========================
+       BUTTON
+    ========================== */
+
+    --color-button-start: #f4f6f8;
+
+    --color-button-end: #dfe3e7;
+
+
+    /* =========================
+       LOGIN
+    ========================== */
+
+    --card-background: #11171e;
+
+    --card-border: #29313a;
+
+    --input-border: #39434e;
+
+    --input-hover: #171e26;
+
+    --button-background: #f2f4f6;
+
+    --button-text: #10151a;
+}

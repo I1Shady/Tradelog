@@ -1,0 +1,675 @@
+/* =========================================================
+   JOURNAL PAGE
+========================================================= */
+
+.journal-page {
+    width: 100%;
+    padding: 120px 40px 60px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 20px 24px;
+    transition:
+        background var(--transition-theme),
+        border-color var(--transition-theme);
+}
+
+.stat-label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--color-text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.stat-value {
+    display: block;
+    color: var(--color-text);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.stat-value.positive { color: #22c55e; }
+.stat-value.negative { color: #ef4444; }
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.journal-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.toolbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    gap: 6px;
+}
+
+.filter-btn {
+    padding: 7px 18px;
+    border: 1px solid var(--input-border);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--color-text-muted);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--color-text);
+    color: var(--color-text);
+}
+
+.filter-btn.active {
+    background: var(--color-button-start);
+    border-color: var(--color-button-start);
+    color: var(--color-white);
+}
+
+.toolbar-right .search-input {
+    min-width: 240px;
+    padding: 8px 16px;
+    border: 1px solid var(--input-border);
+    border-radius: 20px;
+    outline: none;
+    background: transparent;
+    color: var(--color-text);
+    font-size: 13px;
+    transition: border-color 0.2s ease;
+}
+
+.toolbar-right .search-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.toolbar-right .search-input:focus {
+    border-color: var(--color-text-muted);
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+========================================================= */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    background: var(--card-background);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border) transparent;
+    transition:
+        background var(--transition-theme),
+        border-color var(--transition-theme);
+}
+
+.table-wrapper::-webkit-scrollbar {
+    height: 7px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 20px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.trade-table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   GROUP HEADER
+========================================================= */
+
+.trade-table .group-row th {
+    height: 40px;
+    padding: 0 14px;
+    background: var(--input-hover);
+    color: var(--color-text);
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.trade-table .group-trade {
+    border-right: 1px solid var(--card-border);
+}
+
+.trade-table .group-analysis {
+    border-right: 1px solid var(--card-border);
+}
+
+.group-icon {
+    display: inline-block;
+    margin-right: 7px;
+    font-size: 11px;
+    opacity: 0.55;
+}
+
+
+/* =========================================================
+   COLUMN HEADER
+========================================================= */
+
+.trade-table .column-row th {
+    height: 40px;
+    padding: 0 12px;
+    background: var(--card-background);
+    color: var(--color-text-muted);
+    text-align: left;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--card-border);
+}
+
+
+/* =========================================================
+   COLUMN WIDTHS
+========================================================= */
+
+/* TRADE */
+
+.col-num { width: 48px; min-width: 48px; }
+.col-day { width: 58px; min-width: 58px; }
+.col-d { width: 40px; min-width: 40px; }
+.col-m { width: 44px; min-width: 44px; }
+.col-year { width: 50px; min-width: 50px; }
+.col-hh { width: 44px; min-width: 44px; }
+.col-mm { width: 44px; min-width: 44px; }
+
+.col-symbol { width: 120px; min-width: 120px; }
+.col-exchange { width: 90px; min-width: 90px; }
+.col-tf { width: 55px; min-width: 55px; }
+.col-side { width: 82px; min-width: 82px; }
+.col-entry { width: 105px; min-width: 105px; }
+.col-margin { width: 95px; min-width: 95px; }
+.col-lev { width: 60px; min-width: 60px; }
+.col-ordervalue { width: 105px; min-width: 105px; }
+.col-ordertype { width: 90px; min-width: 90px; }
+.col-entsshot { width: 78px; min-width: 78px; }
+
+/* ANALYSIS */
+
+.col-mental { width: 110px; min-width: 110px; }
+.col-strategy { width: 120px; min-width: 120px; }
+.col-mistakes { width: 190px; min-width: 190px; }
+.col-check { width: 88px; min-width: 88px; }
+.col-analysis { width: 180px; min-width: 180px; }
+
+/* RISK / RESULT */
+
+.col-sl { width: 100px; min-width: 100px; }
+.col-tp { width: 100px; min-width: 100px; }
+.col-exitshot { width: 78px; min-width: 78px; }
+.col-posacc { width: 80px; min-width: 80px; }
+.col-pnl { width: 105px; min-width: 105px; }
+
+
+/* =========================================================
+   TABLE BODY
+========================================================= */
+
+.trade-table tbody tr {
+    transition: background 0.15s ease;
+}
+
+.trade-table tbody tr:hover td {
+    background: var(--input-hover);
+}
+
+.trade-table td {
+    height: 52px;
+    padding: 0 12px;
+    background: var(--card-background);
+    color: var(--color-text);
+    vertical-align: middle;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.trade-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Section separators */
+.trade-table td.col-entsshot,
+.trade-table td.col-analysis {
+    border-right: 1px solid var(--card-border);
+}
+
+.trade-table thead .column-row th.col-entsshot,
+.trade-table thead .column-row th.col-analysis {
+    border-right: 1px solid var(--card-border);
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.date-day {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.date-number {
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.date-time {
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* =========================================================
+   SYMBOL
+========================================================= */
+
+.symbol-cell {
+    color: var(--color-text);
+    font-weight: 700;
+    letter-spacing: 0.15px;
+}
+
+
+/* =========================================================
+   SECONDARY TEXT
+========================================================= */
+
+.muted-cell {
+    color: var(--color-text-muted) !important;
+}
+
+.numeric-cell {
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* =========================================================
+   TRUNCATED TEXT
+========================================================= */
+
+.truncate-cell {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   SIDE BADGE
+========================================================= */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+    padding: 0 9px;
+    border-radius: 7px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.badge.long {
+    background: rgba(34, 197, 94, 0.10);
+    border: 1px solid rgba(34, 197, 94, 0.16);
+    color: #22c55e;
+}
+
+.badge.short {
+    background: rgba(239, 68, 68, 0.10);
+    border: 1px solid rgba(239, 68, 68, 0.16);
+    color: #ef4444;
+}
+
+
+/* =========================================================
+   LEVERAGE
+========================================================= */
+
+.lev-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    padding: 3px 6px;
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    background: var(--input-hover);
+    color: var(--color-text-muted);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   TIMEFRAME
+========================================================= */
+
+.tf-badge {
+    color: var(--color-text-muted);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   CHECK
+========================================================= */
+
+.check-list {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.check-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 4px;
+    background: var(--input-hover);
+    color: var(--color-text-muted);
+    font-size: 9px;
+    opacity: 0.5;
+}
+
+.check-item.checked {
+    background: rgba(34, 197, 94, 0.10);
+    color: #22c55e;
+    opacity: 1;
+}
+
+
+/* =========================================================
+   ENTRY / EXIT SCREENSHOT
+========================================================= */
+
+.entry-shot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--input-border);
+    border-radius: 7px;
+    background: transparent;
+    color: var(--color-text-muted);
+    font-size: 12px;
+    cursor: pointer;
+    transition:
+        border-color 0.15s ease,
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+.entry-shot:hover {
+    border-color: var(--color-text-muted);
+    background: var(--input-hover);
+    color: var(--color-text);
+}
+
+.entry-shot.empty {
+    opacity: 0.25;
+    cursor: default;
+}
+
+
+/* =========================================================
+   PNL
+========================================================= */
+
+.trade-table td.col-pnl {
+    text-align: right;
+}
+
+.pnl-value {
+    font-size: 12px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.pnl-status {
+    margin-top: 2px;
+    color: currentColor;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    opacity: 0.55;
+}
+
+td.positive { color: #22c55e !important; }
+td.negative { color: #ef4444 !important; }
+td.pending  { color: #f59e0b !important; }
+
+
+/* =========================================================
+   LOADING / EMPTY
+========================================================= */
+
+.table-loading,
+.table-empty {
+    height: 150px;
+    text-align: center;
+    color: var(--color-text-muted) !important;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.pagination-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 20px;
+    padding-right: 4px;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.page-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--color-text);
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.page-arrow:hover:not(:disabled) {
+    border-color: var(--color-text);
+    background: var(--input-hover);
+}
+
+.page-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.page-current {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 32px;
+    padding: 0 12px;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background: var(--input-hover);
+    color: var(--color-text);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.page-size-select {
+    padding: 6px 28px 6px 12px;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    outline: none;
+    background: transparent;
+    color: var(--color-text);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 992px) {
+
+    .journal-page {
+        padding: 100px 20px 40px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .journal-page {
+        padding: 90px 12px 30px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 14px 16px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    .stat-label {
+        font-size: 10px;
+    }
+
+    .journal-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-group {
+        flex-wrap: wrap;
+    }
+
+    .toolbar-right .search-input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .pagination-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pagination-controls {
+        justify-content: center;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .stat-value {
+        font-size: 18px;
+    }
+
+    .filter-btn {
+        padding: 5px 14px;
+        font-size: 12px;
+    }
+
+}

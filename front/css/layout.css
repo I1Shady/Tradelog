@@ -1,0 +1,91 @@
+/* =========================
+   BODY
+========================= */
+
+body {
+
+    background: var(--color-background);
+
+    color: var(--color-text);
+
+    font-family: var(--font-family);
+
+    overflow-x: hidden;
+
+    transition:
+        background-color var(--transition-theme),
+        color var(--transition-theme);
+}
+
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 110px;
+
+    padding: 0 63px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+
+/* =========================
+   NAV ACTIONS
+========================= */
+
+.nav-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 24px;
+}
+
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding-top: 30px;
+}
+
+
+
+.hero-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
