@@ -9,7 +9,7 @@
 <hr />
 
 ## 🚀 Features
-- **Voice Journal**: Record your thoughts and let AI structure your trade data.
+- **Voice Journal**: Skip the boring manual data entry! Just speak your thoughts out loud (like talking to yourself) while opening a position on the chart, and AI will automatically extract and record the entire trade details for you.
 - **Detailed Analytics**: Track your win rate, PnL, and balance effortlessly.
 - **Customizable Checklist**: Ensure you never miss a step before entering a trade.
 
