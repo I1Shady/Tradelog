@@ -69,6 +69,18 @@ Currently, the default model is configured for **Persian (Farsi)** voice inputs.
 
 [TradeLog Demo](https://youtu.be/5PrTyw7Uw3U?si=SqtbzWM6Mi8QhrnH)
 
+## 🌍 Vision: The Ultimate Cross-Platform Trading Journal
+
+TradeLog is currently a powerful web app, but my vision is much bigger. I want to turn it into a blazing-fast, cross-platform desktop and mobile application.
+
+**My next goals are:**
+- 🚀 **Cross-Platform Apps**: Port the entire app to native desktop (Windows, macOS, Linux) and mobile (Android, iOS) using frameworks like Tauri or Flutter.
+- ⚡ **Performance & Speed**: Optimize database queries, add caching, and make the UI buttery smooth.
+- 🛠 **Responsive Support**: Dedicate full-time hours to fixing bugs and responding to community feature requests.
+
+> **Want to support the development?** You can send crypto directly to my wallets in the [Support section](#-support-this-project), or reach out to me for corporate partnerships. Every contribution brings this vision closer to reality!
+
+
 ## 💰 Support This Project
 
 If you find TradeLog useful, you can support its development by sending crypto directly to my wallet:
