@@ -59,7 +59,7 @@ Currently, the default model is configured for **Persian (Farsi)** voice inputs.
 
 ## 🎥 Video Demo
 
-TradeLog Demo(https://youtu.be/5PrTyw7Uw3U?si=SqtbzWM6Mi8QhrnH)
+[!TradeLog Demo](https://youtu.be/5PrTyw7Uw3U?si=SqtbzWM6Mi8QhrnH)
 
 ## 💰 Support This Project
 
