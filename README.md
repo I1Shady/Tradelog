@@ -59,7 +59,7 @@ Currently, the default model is configured for **Persian (Farsi)** voice inputs.
 
 ## 🎥 Video Demo
 
-[![TradeLog Demo](https://i1shady.github.io/Tradelog/front/img/video-demo.png)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![TradeLog Demo]](https://youtu.be/5PrTyw7Uw3U?si=SqtbzWM6Mi8QhrnH)
 
 ## 💰 Support This Project
 
