@@ -3,7 +3,7 @@
 <div align="center">
   <img src="./front/img/Patrick’s Neon Trading Night.png" alt="TradeLog Logo" width="300"/>
   <h1>TradeLog - Smart Trading Journal</h1>
-  <p>Your ultimate companion for tracking, analyzing, and improving your crypto trades.</p>
+  <p>Your ultimate companion for tracking, analyzing, and improving your trades.</p>
 </div>
 
 <hr />
