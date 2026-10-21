@@ -677,6 +677,7 @@ td.pending  { color: #f59e0b !important; }
 
 
 /* Patrick's Trading Corner */
+/*
 
 .patrick-corner {
     position: relative;
@@ -784,8 +785,6 @@ td.pending  { color: #f59e0b !important; }
     object-position: center 43%;
 }
 
-/* Responsive */
-
 @media (max-width: 700px) {
     .patrick-corner {
         flex-direction: column;
@@ -817,4 +816,4 @@ td.pending  { color: #f59e0b !important; }
         min-height: 0;
         object-position: center 40%;
     }
-}
+}*/
