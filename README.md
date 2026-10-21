@@ -57,6 +57,10 @@ Currently, the default model is configured for **Persian (Farsi)** voice inputs.
   <p><i>Voice Journal AI extracting JSON from a Telegram voice message</i></p>
 </div>
 
+## 🎥 Video Demo
+
+[![TradeLog Demo](https://i1shady.github.io/Tradelog/front/img/video-demo.png)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+
 ## 💰 Support This Project
 
 If you find TradeLog useful, you can support its development by sending crypto directly to my wallet:
