@@ -14,7 +14,7 @@
 - **Customizable Checklist**: Ensure you never miss a step before entering a trade.
 
 ## 🛠 Tech Stack
-- **Frontend**: Vanilla JavaScript, HTML, CSS (Hosted on GitHub Pages)
+- **Frontend**: JavaScript, HTML, CSS (Hosted on GitHub Pages)
 - **Backend**: Node.js, Express (Hosted on Render)
 - **Database**: PostgreSQL
 - **AI Integration**: Whisper.cpp & LLM for Voice extraction
@@ -44,6 +44,13 @@ Currently, the default model is configured for **Persian (Farsi)** voice inputs.
   - **File:** `Voice-Journal/internal/config/config.go`
   - Change the model name or language code to your desired language (e.g., `en` for English).
 - If you want to use **Whisper.cpp** locally instead of an external API, ensure the `whisper.cpp` folder is properly compiled and the model path in `config.go` is pointing to your local `.bin` model file.
+
+## 🗺️ Roadmap
+
+- [ ] **Image Analyzer**: AI-powered chart screenshot analysis.
+- [ ] **Advanced Trade Updates**: More powerful and deeper trade editing features.
+
+> 💡 *Development of these features depends on my free time and the support received. If you find this project useful, consider [supporting me](#-support-this-project).*
 
 ## 📸 Screenshots
 
