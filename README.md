@@ -19,8 +19,17 @@
 - **Database**: PostgreSQL
 - **AI Integration**: Whisper.cpp & LLM for Voice extraction
 
-## 📸 Screenshots
-*(YOUR SCREENSHOTS WILL GO HERE)*
+<img src="https://w7.pngwing.com/pngs/936/688/png-transparent-screenshot-ios-glyphs-icon.png" width="50"/> ## Screenshots
+
+<div align="center">
+  <img src="./front/img/screen-1.jpg" alt="TradeLog Dashboard" width="800"/>
+  <p><i>The main dashboard showing trade history and analytics</i></p>
+  
+  <br />
+  
+  <img src="./front/img/screen-2.jpg" alt="Voice Journal Terminal" width="800"/>
+  <p><i>Voice Journal AI extracting JSON from a Telegram voice message</i></p>
+</div>
 
 ## 💰 Support This Project
 
