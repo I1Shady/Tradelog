@@ -3,7 +3,7 @@ package config
 const (
 	TelegramBotToken = "Token"
 
-	AIAPIKey  = "sk-yEEkBmOLVtRGnDy2dvtVu8lnXIPuuk7z68pt87bX2mfI7dnT"
+	AIAPIKey  = "API-KEY"
     AIBaseURL = "https://seekai.cc/v1"
     AIModel   = "deepseek-ai/DeepSeek-V4-Flash-0731"
 
