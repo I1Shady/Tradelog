@@ -45,14 +45,6 @@ Currently, the default model is configured for **Persian (Farsi)** voice inputs.
   - Change the model name or language code to your desired language (e.g., `en` for English).
 - If you want to use **Whisper.cpp** locally instead of an external API, ensure the `whisper.cpp` folder is properly compiled and the model path in `config.go` is pointing to your local `.bin` model file.
 
-## 🗺️ Roadmap
-
-- [ ] **Image Analyzer**: AI-powered chart screenshot analysis.
-- [ ] **Voice-to-JSON Review UI**: A sleek, swipe-friendly interface to review and approve AI-extracted trade data before saving to the database (Human-in-the-loop confirmation).
-- [ ] **Advanced Trade Updates**: More powerful and deeper trade editing features.
-
-> 💡 *Development of these features depends on my free time and the support received. If you find this project useful, consider [supporting me](#-support-this-project).*
-
 ## 📸 Screenshots
 
 <div align="center">
@@ -69,14 +61,16 @@ Currently, the default model is configured for **Persian (Farsi)** voice inputs.
 
 [TradeLog Demo](https://youtu.be/5PrTyw7Uw3U?si=SqtbzWM6Mi8QhrnH)
 
-## 🌍 Vision: The Ultimate Cross-Platform Trading Journal
+## 🌍 Vision & Roadmap
 
-TradeLog is currently a powerful web app, but my vision is much bigger. I want to turn it into a blazing-fast, cross-platform desktop and mobile application.
+TradeLog is currently a powerful web app, but my vision is much bigger. I want to turn it into a blazing-fast, cross-platform application.
 
 **My next goals are:**
+- 🤖 **Image Analyzer**: AI-powered chart screenshot analysis.
+- 📱 **Voice-to-JSON Review UI**: A sleek, swipe-friendly interface to review and approve AI-extracted trade data before saving to the database (Human-in-the-loop confirmation).
 - 🚀 **Cross-Platform Apps**: Port the entire app to native desktop (Windows, macOS, Linux) and mobile (Android, iOS) using frameworks like Tauri or Flutter.
 - ⚡ **Performance & Speed**: Optimize database queries, add caching, and make the UI buttery smooth.
-- 🛠 **Responsive Support**: Dedicate full-time hours to fixing bugs and responding to community feature requests.
+- 🛠 **Advanced Trade Updates & Support**: More powerful trade editing features, plus full-time hours dedicated to fixing bugs and responding to community requests.
 
 > **Want to support the development?** You can send crypto directly to my wallets in the [Support section](#-support-this-project), or reach out to me for corporate partnerships. Every contribution brings this vision closer to reality!
 
