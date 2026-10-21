@@ -26,7 +26,7 @@ To run this project on your own, you need to configure a few environment variabl
 ### 1. Backend API (Frontend)
 If you deploy the backend on a different server (e.g., your own Render instance), you must update the API URL in the frontend JavaScript file:
 - **File:** `front/js/journal.js`
-- **Find:** `const API_URL = "https://tradelog-1-po60.onrender.com/api/trades";`
+- **Find:** `const API_URL = "https://yourapi.com/api/trades";`
 - **Change to:** Your own backend URL.
 
 ### 2. Voice Journal (AI & Telegram Bot)
@@ -48,6 +48,7 @@ Currently, the default model is configured for **Persian (Farsi)** voice inputs.
 ## 🗺️ Roadmap
 
 - [ ] **Image Analyzer**: AI-powered chart screenshot analysis.
+- [ ] **Voice-to-JSON Review UI**: A sleek, swipe-friendly interface to review and approve AI-extracted trade data before saving to the database (Human-in-the-loop confirmation).
 - [ ] **Advanced Trade Updates**: More powerful and deeper trade editing features.
 
 > 💡 *Development of these features depends on my free time and the support received. If you find this project useful, consider [supporting me](#-support-this-project).*
