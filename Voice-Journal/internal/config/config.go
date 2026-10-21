@@ -1,7 +1,7 @@
 package config
 
 const (
-	TelegramBotToken = "8571832892:AAHX4xBBeiZpuf2Oj7_myfQ3wvCgSBKCxds"
+	TelegramBotToken = "Token"
 
 	AIAPIKey  = "sk-yEEkBmOLVtRGnDy2dvtVu8lnXIPuuk7z68pt87bX2mfI7dnT"
     AIBaseURL = "https://seekai.cc/v1"
