@@ -19,6 +19,32 @@
 - **Database**: PostgreSQL
 - **AI Integration**: Whisper.cpp & LLM for Voice extraction
 
+## ⚙️ Configuration & Setup
+
+To run this project on your own, you need to configure a few environment variables and API endpoints.
+
+### 1. Backend API (Frontend)
+If you deploy the backend on a different server (e.g., your own Render instance), you must update the API URL in the frontend JavaScript file:
+- **File:** `front/js/journal.js`
+- **Find:** `const API_URL = "https://tradelog-1-po60.onrender.com/api/trades";`
+- **Change to:** Your own backend URL.
+
+### 2. Voice Journal (AI & Telegram Bot)
+The Voice Journal bot requires your own API keys and bot tokens. We have provided a `config.example.go` file for reference.
+- **File to edit:** `Voice-Journal/internal/config/config.go`
+- **What to change:**
+  - `TelegramBotToken`: Get your token from [@BotFather](https://t.me/BotFather).
+  - `AIAPIKey` & `AIBaseURL`: Your AI provider's API key and endpoint (e.g., OpenAI, DeepSeek).
+  - `BaseDir`: Change this to the absolute path of the `voice-journal` folder on your machine.
+  - `WhisperModel` & `WhisperLang`: Set your Whisper model path and language code.
+
+### 3. Language Model (Whisper)
+Currently, the default model is configured for **Persian (Farsi)** voice inputs. 
+- If you want to use **English** or any other language, you need to modify the model configuration in:
+  - **File:** `Voice-Journal/internal/config/config.go`
+  - Change the model name or language code to your desired language (e.g., `en` for English).
+- If you want to use **Whisper.cpp** locally instead of an external API, ensure the `whisper.cpp` folder is properly compiled and the model path in `config.go` is pointing to your local `.bin` model file.
+
 ## 📸 Screenshots
 
 <div align="center">
