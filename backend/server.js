@@ -8,9 +8,8 @@ app.use(express.json());
 //Cors
 app.use(cors({
     origin: [
-        "http://localhost:3000",
-        "http://localhost:5500",
-        "http://127.0.0.1:5500"
+        "https://i1shady.github.io",
+        "http://localhost:5500"
     ],
     credentials: true
 }));
@@ -52,11 +51,10 @@ app.get("/api/trades/:id", async (req, res) => {
 // START
 // ============================================
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, async () => {
-    console.log(`✅ Server running on http://localhost:${PORT}`);
-    console.log(`📊 Trades: http://localhost:${PORT}/api/trades`);
+app.listen(PORT, "0.0.0.0", async () => {
+    console.log(`✅ Server running on port ${PORT}`);
     try {
         await pool.query('SELECT NOW()');
         console.log('✅ Connected to PostgreSQL');
