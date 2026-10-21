@@ -102,7 +102,7 @@ app.post("/api/trades", async (req, res) => {
                 b.symbol ?? null,
                 b.exchange ?? null,
                 b.timeframe ?? null,
-                b.side ??,
+                b.side ?? null,
                 b.entry_price ?? null,
                 b.margin ?? null,
                 b.leverage ?? null,
