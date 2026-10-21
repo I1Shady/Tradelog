@@ -3,11 +3,10 @@ import pg from 'pg';
 const { Pool } = pg;
 
 export const pool = new Pool({
-  host: 'localhost',
-  port: 5432,
-  user: 'tradelog',
-  password: 'admin',
-  database: 'tradelog',
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 pool.on('error', (err) => {
