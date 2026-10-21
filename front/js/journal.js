@@ -307,7 +307,7 @@ function createTradeRow(trade) {
             </td>
 
             <td class="col-posacc numeric-cell">
-                ${trade.positionToAcc.toFixed(2)}%
+                ${trade.positionToAcc != null ? trade.positionToAcc.toFixed(2) : "0.00"}%
             </td>
 
             <td class="col-pnl ${pnlClass}">
