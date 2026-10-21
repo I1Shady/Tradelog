@@ -26,7 +26,7 @@
 
 If you find TradeLog useful, you can support its development by sending crypto directly to my wallet:
 
-**USDT (BEP20):** `0xF6DA36c843bbb218422fee6f8798e2874c2baAC1`
+<img src="https://zengo.com/wp-content/uploads/USDT-BEP20-1.png" width="20"/> **USDT (BEP20):** `0xF6DA36c843bbb218422fee6f8798e2874c2baAC1`
 
 **TRX (TRC20):** `TVxnAFuTmbXANaMvAadLipM6j78UPWT8QS`
 
