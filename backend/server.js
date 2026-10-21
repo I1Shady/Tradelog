@@ -79,6 +79,56 @@ app.get("/api/trades/:id", async (req, res) => {
     }
 });
 
+//Add new trades
+app.post("/api/trades", async (req, res) => {
+    try {
+        const b = req.body;
+
+        const result = await pool.query(
+            `INSERT INTO journal_entries (
+                symbol, exchange, timeframe, side, entry_price, margin, leverage,
+                order_value, order_type,
+                mental, strategy, mistakes, checklist, notes,
+                stop_loss, take_profit, position_pct,
+                pnl_amount, pnl_currency, pnl_result
+            ) VALUES (
+                $1,$2,$3,$4,$5,$6,$7,
+                $8,$9,$10,
+                $11,$12,$13,$14,$15,$16,
+                $17,$18,$19,$20
+            )
+            RETURNING *`,
+            [
+                b.symbol ?? null,
+                b.exchange ?? null,
+                b.timeframe ?? null,
+                b.side ??,
+                b.entry_price ?? null,
+                b.margin ?? null,
+                b.leverage ?? null,
+                b.order_value ?? null,
+                b.order_type ?? null,
+                b.mental ?? null,
+                b.strategy ?? null,
+                b.mistakes ?? null,
+                b.checklist ? JSON.stringify(b.checklist) : null,
+                b.notes ?? null,
+                b.stop_loss ?? null,
+                b.take_profit ?? null,
+                b.position_pct ?? null,
+                b.pnl_amount ?? null,
+                b.pnl_currency ?? null,
+                b.pnl_result ?? null
+            ]
+        );
+
+        res.status(201).json(result.rows[0]);
+    } catch (err) {
+        console.error('POST /api/trades error:', err);
+        res.status(500).json({ error: 'internal error' });
+    }
+});
+
 // ============================================
 // START
 // ============================================
