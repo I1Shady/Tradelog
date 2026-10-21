@@ -4,11 +4,6 @@
   <img src="./front/img/Patrick’s Neon Trading Night.png" alt="TradeLog Logo" width="150"/>
   <h1>TradeLog - Smart Trading Journal</h1>
   <p>Your ultimate companion for tracking, analyzing, and improving your crypto trades.</p>
-
-  <!-- دکمه دونیت -->
-  <a href="https://your-donation-link.com" target="_blank">
-    <img src="https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Donate"/>
-  </a>
 </div>
 
 <hr />
@@ -26,3 +21,11 @@
 
 ## 📸 Screenshots
 *(YOUR SCREENSHOTS WILL GO HERE)*
+
+## 💰 Support This Project
+
+If you find TradeLog useful, you can support its development by sending crypto directly to my wallet:
+
+**USDT (BEP20):** `0xF6DA36c843bbb218422fee6f8798e2874c2baAC1`
+
+**TRX (TRC20):** `TVxnAFuTmbXANaMvAadLipM6j78UPWT8QS`
