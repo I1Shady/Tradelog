@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // STATE
 // ============================================================
 
-const API_URL = "http://localhost:5000/api/trades";
+const API_URL = "https://tradelog-1-po60.onrender.com/api/trades";
 
 let trades = [];
 let filteredTrades = [];
