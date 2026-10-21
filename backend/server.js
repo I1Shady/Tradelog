@@ -8,14 +8,43 @@ app.use(express.json());
 //Cors
 app.use(cors({
     origin: [
-        "http://localhost:3000",
-        "http://localhost:5500",
-        "http://127.0.0.1:5500"
+        "https://i1shady.github.io",
+        "http://localhost:5500"
     ],
     credentials: true
 }));
 
-// روت تستی
+// Row change
+function formatTradeRow(row) {
+    return {
+        id: row.id,
+        date: row.trade_date, 
+        symbol: row.symbol,
+        exchange: row.exchange,
+        timeframe: row.timeframe,
+        side: row.side,
+        entryPrice: row.entry_price,
+        positionMargin: row.margin,
+        leverage: row.leverage,
+        orderValue: row.order_value,
+        orderType: row.order_type,
+        entryScreenshot: row.entry_screenshot,
+        mentalState: row.mental,
+        strategy: row.strategy,
+        mistakes: row.mistakes,
+        checklist: row.checklist,
+        notes: row.notes,
+        stopLoss: row.stop_loss,
+        takeProfit: row.take_profit,
+        exitScreenshot: row.exit_screenshot,
+        positionToAcc: row.position_pct,
+        pnl: row.pnl_amount,
+        status: row.pnl_amount !== null ? "closed" : "open",
+        exitType: row.pnl_result
+    };
+}
+
+// root
 app.get("/", (req, res) => {
     res.json({ message: "TradeLog API is running" });
 });
@@ -24,7 +53,8 @@ app.get("/", (req, res) => {
 app.get("/api/trades", async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM journal_entries ORDER BY id DESC');
-        res.json(result.rows);
+        const formattedTrades = result.rows.map(formatTradeRow); 
+        res.json(formattedTrades);
     } catch (err) {
         console.error('GET /api/trades error:', err);
         res.status(500).json({ error: 'internal error' });
@@ -41,9 +71,60 @@ app.get("/api/trades/:id", async (req, res) => {
             return res.status(404).json({ message: "Trade not found" });
         }
 
-        res.json(result.rows[0]);
+        const formattedTrade = formatTradeRow(result.rows[0]);
+        res.json(formattedTrade);
     } catch (err) {
         console.error('GET /api/trades/:id error:', err);
+        res.status(500).json({ error: 'internal error' });
+    }
+});
+
+//Add new trades
+app.post("/api/trades", async (req, res) => {
+    try {
+        const b = req.body;
+
+        const result = await pool.query(
+            `INSERT INTO journal_entries (
+                symbol, exchange, timeframe, side, entry_price, margin, leverage,
+                order_value, order_type,
+                mental, strategy, mistakes, checklist, notes,
+                stop_loss, take_profit, position_pct,
+                pnl_amount, pnl_currency, pnl_result
+            ) VALUES (
+                $1,$2,$3,$4,$5,$6,$7,
+                $8,$9,$10,
+                $11,$12,$13,$14,$15,$16,
+                $17,$18,$19,$20
+            )
+            RETURNING *`,
+            [
+                b.symbol ?? null,
+                b.exchange ?? null,
+                b.timeframe ?? null,
+                b.side ?? null,
+                b.entry_price ?? null,
+                b.margin ?? null,
+                b.leverage ?? null,
+                b.order_value ?? null,
+                b.order_type ?? null,
+                b.mental ?? null,
+                b.strategy ?? null,
+                b.mistakes ?? null,
+                b.checklist ? JSON.stringify(b.checklist) : null,
+                b.notes ?? null,
+                b.stop_loss ?? null,
+                b.take_profit ?? null,
+                b.position_pct ?? null,
+                b.pnl_amount ?? null,
+                b.pnl_currency ?? null,
+                b.pnl_result ?? null
+            ]
+        );
+
+        res.status(201).json(result.rows[0]);
+    } catch (err) {
+        console.error('POST /api/trades error:', err);
         res.status(500).json({ error: 'internal error' });
     }
 });
@@ -52,11 +133,10 @@ app.get("/api/trades/:id", async (req, res) => {
 // START
 // ============================================
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, async () => {
-    console.log(`✅ Server running on http://localhost:${PORT}`);
-    console.log(`📊 Trades: http://localhost:${PORT}/api/trades`);
+app.listen(PORT, "0.0.0.0", async () => {
+    console.log(`✅ Server running on port ${PORT}`);
     try {
         await pool.query('SELECT NOW()');
         console.log('✅ Connected to PostgreSQL');

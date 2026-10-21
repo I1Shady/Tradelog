@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // STATE
 // ============================================================
 
-const API_URL = "http://localhost:5000/api/trades";
+const API_URL = "https://tradelog-1-po60.onrender.com/api/trades";
 
 let trades = [];
 let filteredTrades = [];
@@ -307,7 +307,7 @@ function createTradeRow(trade) {
             </td>
 
             <td class="col-posacc numeric-cell">
-                ${trade.positionToAcc.toFixed(2)}%
+                ${trade.positionToAcc != null ? trade.positionToAcc.toFixed(2) : "0.00"}%
             </td>
 
             <td class="col-pnl ${pnlClass}">
