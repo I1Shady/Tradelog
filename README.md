@@ -1,16 +1,10 @@
 # TradeLog
 
-<p align="center">
-  <img src="./front/img/Patrick’s Neon Trading Night.png" alt="TradeLog Trading Setup" width="800">
-</p>
-
-<p align="center">
-  A personal trading journal built to help traders document their decisions, analyze their performance, and improve their trading discipline.
-</p>
-
-<p align="center">
-  <a href="https://youtu.be/5PrTyw7Uw3U?si=SqtbzWM6Mi8Qhrn">Watch the Demo</a>
-</p>
+<div align="center">
+  <img src="./front/img/Patrick’s Neon Trading Night.png" alt="TradeLog Logo" width="300"/>
+  <h1>TradeLog - Smart Trading Journal</h1>
+  <p>Your ultimate companion for tracking, analyzing, and improving your trades.</p>
+</div>
 
 ---
 
