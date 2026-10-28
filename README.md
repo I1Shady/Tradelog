@@ -16,15 +16,10 @@ Instead of relying on memory or scattered notes, traders can record their setups
 
 TradeLog also includes **Voice Journal**, a companion service that converts Persian voice notes into structured trading journal entries using speech recognition and AI-powered data extraction.
 
-## Features
-
-- **Trading Journal:** Record and review trading activity in one place.
-- **Voice Journal:** Turn Persian voice notes into structured journal entries.
-- **AI-Powered Extraction:** Extract relevant trading information from transcribed voice notes and organize it into structured data.
-- **Performance Analytics:** Review trading statistics and evaluate performance over time.
-- **Customizable Checklist:** Keep track of trading conditions before entering a trade.
-- **Market Visualization:** Review trading information alongside market charts.
-- **PostgreSQL Storage:** Store journal entries and related data in a database.
+## 🚀 Features
+- **Voice Journal**: Skip the boring manual data entry! Just speak your thoughts out loud (like talking to yourself) while opening a position on the chart, and AI will automatically extract and record the entire trade details for you.
+- **Detailed Analytics**: Track your win rate, PnL, and balance effortlessly.
+- **Customizable Checklist**: Ensure you never miss a step before entering a trade.
 
 ## Screenshots
 
@@ -50,7 +45,7 @@ TradeLog also includes **Voice Journal**, a companion service that converts Pers
 | Voice Journal | Go |
 | Runtime Environment | MoLab |
 
-## Architecture
+## ⚙️ Configuration & Setup
 
 TradeLog consists of a web application and a separate Voice Journal service.
 
@@ -154,7 +149,13 @@ Replace the example values with your own configuration. The `WhisperAPIURL` shou
 
 Keep API keys and bot tokens private. Do not commit real credentials to GitHub.
 
-### 4. Run the Go service
+### 4. Backend API
+If you deploy the backend on a different server (e.g., your own Render instance), you must update the API URL in the frontend JavaScript file:
+- **File:** `front/js/journal.js`
+- **Find:** `const API_URL = "https://yourapi.com/api/trades";`
+- **Change to:** Your own backend URL.
+
+### 5. Run the Go service
 
 From the `Voice-Journal` directory, install the Go dependencies and run the application:
 
