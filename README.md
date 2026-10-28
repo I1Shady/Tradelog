@@ -29,11 +29,11 @@ TradeLog also includes **Voice Journal**, a companion service that converts Pers
 ## Screenshots
 
 <p align="center">
-  <img src="./front/img/screen-2.jpg" alt="TradeLog Dashboard" width="800">
+  <img src="./front/img/screen-2.jpg" alt="TradeLog Dashboard" width="600">
 </p>
 
 <p align="center">
-  <img src="./front/img/screen-1.jpg" alt="TradeLog Interface" width="800">
+  <img src="./front/img/screen-1.jpg" alt="TradeLog Interface" width="600">
 </p>
 
 ## Tech Stack
@@ -47,7 +47,7 @@ TradeLog also includes **Voice Journal**, a companion service that converts Pers
 | Speech Recognition API | Python, FastAPI |
 | Public API Access | ngrok |
 | AI Data Extraction | DeepSeek API |
-| Voice Journal Bot | Go, Telegram Bot API |
+| Voice Journal | Go |
 | Runtime Environment | MoLab |
 
 ## Architecture
@@ -183,23 +183,6 @@ Configure the backend's database connection and required environment variables b
 
 The frontend, backend, and Voice Journal service are separate components, so each must be configured to communicate with the correct endpoint.
 
-## Project Structure
-
-```text
-TradeLog/
-├── front/                  # Frontend assets and interface
-├── Voice-Journal/
-│   ├── cmd/
-│   │   └── app/            # Go application entry point
-│   ├── internal/           # Internal Go packages
-│   ├── molab.py            # Remote Whisper notebook
-│   ├── go.mod
-│   └── go.sum
-└── README.md
-```
-
-This is a high-level overview. Other application files and directories may exist in the repository.
-
 ## Roadmap
 
 - [ ] Improve the Voice Journal transcription workflow.
@@ -210,18 +193,13 @@ This is a high-level overview. Other application files and directories may exist
 - [ ] Further simplify installation and configuration.
 - [ ] Improve the overall user experience.
 
-## Demo
-
-Watch the project demo on YouTube:
-
-**[TradeLog Demo](https://youtu.be/5PrTyw7Uw3U?si=SqtbzWM6Mi8Qhrn)**
 
 ## Support the Project
 
 If you find TradeLog useful and want to support its development, you can contribute through the following wallets:
 
-- **USDT (BEP20):** `0xF6DA36c843bbb218422fee6f8798e2874c2baAC1`
-- **TRX (TRC20):** `TVxnAFuTmbXANaMvAadLipM6j78UPWT8QS`
+- <img src="https://zengo.com/wp-content/uploads/USDT-BEP20-1.png" width="30"/> **USDT (BEP20):** `0xF6DA36c843bbb218422fee6f8798e2874c2baAC1`
+- <img src="https://assets.gemwallet.com/blockchains/tron/logo.png" width="30"/> **TRX (TRC20):** `TVxnAFuTmbXANaMvAadLipM6j78UPWT8QS`
 
 ## Disclaimer
 
