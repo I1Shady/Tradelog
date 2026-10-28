@@ -1,70 +1,98 @@
+
 package transcribe
 
 import (
+	"bytes"
 	"context"
+	"encoding/json"
 	"fmt"
+	"io"
+	"mime/multipart"
+	"net/http"
 	"os"
-	"os/exec"
 	"path/filepath"
-	"strings"
+	"time"
 )
 
 type Whisper struct {
-	BinaryPath string
-	ModelPath  string
-	Language   string
-	Prompt     string
-	Threads    int
+	APIURL string
+	APIKey string
+	Client *http.Client
 }
 
-func New(binaryPath, modelPath, language, prompt string) *Whisper {
+func New(apiURL, apiKey string) *Whisper {
 	return &Whisper{
-		BinaryPath: binaryPath,
-		ModelPath:  modelPath,
-		Language:   language,
-		Prompt:     prompt,
-		Threads:    4,
+		APIURL: apiURL,
+		APIKey: apiKey,
+		Client: &http.Client{
+			Timeout: 60 * time.Minute,
+		},
 	}
 }
 
 func (w *Whisper) Transcribe(ctx context.Context, audioPath string) (string, error) {
-	if _, err := os.Stat(audioPath); err != nil {
-		return "", fmt.Errorf("audio not found: %w", err)
+	audio, err := os.Open(audioPath)
+	if err != nil {
+		return "", fmt.Errorf("open audio: %w", err)
+	}
+	defer audio.Close()
+
+	var body bytes.Buffer
+	writer := multipart.NewWriter(&body)
+
+	part, err := writer.CreateFormFile("file", filepath.Base(audioPath))
+	if err != nil {
+		return "", fmt.Errorf("create multipart file: %w", err)
 	}
 
-	args := []string{
-		"-m", w.ModelPath,
-		"-f", audioPath,
-		"-l", w.Language,
-		"-t", fmt.Sprintf("%d", w.Threads),
-		"--output-txt",
-		"--no-prints",
+	if _, err := io.Copy(part, audio); err != nil {
+		return "", fmt.Errorf("write audio: %w", err)
 	}
 
-	if w.Prompt != "" {
-		args = append(args, "--prompt", w.Prompt)
+	if err := writer.Close(); err != nil {
+		return "", fmt.Errorf("close multipart writer: %w", err)
 	}
 
-	cmd := exec.CommandContext(ctx, w.BinaryPath, args...)
-	cmd.Dir = filepath.Dir(audioPath)
+	req, err := http.NewRequestWithContext(
+		ctx,
+		http.MethodPost,
+		w.APIURL,
+		&body,
+	)
+	if err != nil {
+		return "", fmt.Errorf("create request: %w", err)
+	}
 
-	
-	absBin, err := filepath.Abs(w.BinaryPath)
-	if err == nil {
-		binDir := filepath.Dir(absBin)
-		cmd.Env = append(os.Environ(),
-			"LD_LIBRARY_PATH="+binDir+":"+os.Getenv("LD_LIBRARY_PATH"),
+	req.Header.Set("Content-Type", writer.FormDataContentType())
+	req.Header.Set("X-API-Key", w.APIKey)
+
+	client := w.Client
+	if client == nil {
+		client = http.DefaultClient
+	}
+
+	resp, err := client.Do(req)
+	if err != nil {
+		return "", fmt.Errorf("whisper API request: %w", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
+		responseBody, _ := io.ReadAll(io.LimitReader(resp.Body, 4096))
+		return "", fmt.Errorf(
+			"whisper API returned %s: %s",
+			resp.Status,
+			string(responseBody),
 		)
 	}
-	
-	if out, err := cmd.CombinedOutput(); err != nil {
-		return "", fmt.Errorf("whisper: %w\n%s", err, string(out))
+
+	var result struct {
+		Text string `json:"text"`
 	}
 
-	txtPath := audioPath + ".txt"
-	data, err := os.ReadFile(txtPath)
-	if err != nil {
-		return "", fmt.Errorf("read whisper output: %w", err)
+	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+		return "", fmt.Errorf("decode whisper response: %w", err)
 	}
-	return strings.TrimSpace(string(data)), nil
+
+	return result.Text, nil
 }

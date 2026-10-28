@@ -1,0 +1,28 @@
+apt-get update
+apt-get install -y cmake build-essential
+
+
+apt-get update
+apt-get install -y wget ca-certificates
+wget https://developer.download.nvidia.com/compute/cuda/repos/debian13/x86_64/cuda-keyring_1.1-1_all.deb
+dpkg -i cuda-keyring_1.1-1_all.deb
+apt-get update
+
+
+
+apt-get install -y cuda-toolkit
+
+git clone https://github.com/ggml-org/whisper.cpp
+cd whisper.cpp
+
+
+cmake -B build \
+  -DGGML_CUDA=ON \
+  -DCUDAToolkit_ROOT=/usr/local/cuda-13.4 \
+  -DCMAKE_CUDA_COMPILER=/usr/local/cuda-13.4/bin/nvcc \
+  -DCMAKE_LIBRARY_PATH=/usr/local/cuda-13.4/targets/x86_64-linux/lib
+  
+  
+cmake --build build --config Release -j2
+  
+  

@@ -30,9 +30,8 @@ func run() error {
 	}
 	log.Printf("bot @%s started", bot.Username())
 
-	tr := transcribe.New(config.WhisperBin, config.WhisperModel, config.WhisperLang, config.WhisperPrompt)
-	tr.Threads = config.WhisperThreads
-
+	tr := transcribe.New(config.WhisperAPIURL, config.WhisperAPIKey)
+	
 	ext := extract.New(config.AIAPIKey, config.AIBaseURL, config.AIModel)
 	ctx := context.Background()
 
@@ -72,7 +71,6 @@ func run() error {
 		}
 
 		os.Remove(wavPath)
-		os.Remove(wavPath + ".txt")
 		return nil
 	})
 }
