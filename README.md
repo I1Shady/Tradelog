@@ -38,6 +38,7 @@ TradeLog also includes **Voice Journal**, a companion service that converts Pers
   <img src="https://img.shields.io/badge/Database-PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL">
   <img src="https://img.shields.io/badge/Voice%20Journal-Go-00ADD8?style=flat-square&logo=go&logoColor=white" alt="Go">
   <img src="https://img.shields.io/badge/AI-DeepSeek%20API-4D6BFE?style=flat-square" alt="DeepSeek API">
+  <img src="https://img.shields.io/badge/ngrok-Public%20API%20Access-1F1E37?style=flat-square&logo=ngrok&logoColor=white" alt="ngrok">
 </p>
 | Component | Technology |
 |---|---|
