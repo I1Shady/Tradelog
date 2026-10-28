@@ -185,13 +185,11 @@ The frontend, backend, and Voice Journal service are separate components, so eac
 
 ## Roadmap
 
-- [ ] Improve the Voice Journal transcription workflow.
-- [ ] Make remote transcription availability more reliable.
-- [ ] Improve AI extraction accuracy for trading terminology.
-- [ ] Expand trading analytics and reporting.
-- [ ] Improve error handling and service monitoring.
-- [ ] Further simplify installation and configuration.
-- [ ] Improve the overall user experience.
+- 🤖 **Image Analyzer**: AI-powered chart screenshot analysis.
+- 📱 **Voice-to-JSON Review UI**: A sleek, swipe-friendly interface to review and approve AI-extracted trade data before saving to the database (Human-in-the-loop confirmation).
+- 🚀 **Cross-Platform Apps**: Port the entire app to native desktop (Windows, macOS, Linux) and mobile (Android, iOS) using frameworks like Tauri or Flutter.
+- ⚡ **Performance & Speed**: Optimize database queries, add caching, and make the UI buttery smooth.
+- 🛠 **Advanced Trade Updates & Support**: More powerful trade editing features, plus full-time hours dedicated to fixing bugs and responding to community requests.
 
 
 ## Support the Project
