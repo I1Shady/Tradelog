@@ -167,42 +167,24 @@ The bot can then receive voice messages, send audio to the remote transcription 
 
 The exact behavior depends on the current Go implementation and its configuration.
 
-## Web Application Setup
 
-### Frontend
+## 🌍 Vision & Roadmap
 
-The frontend is built with HTML, CSS, and JavaScript.
+TradeLog is currently a powerful web app, but my vision is much bigger. I want to turn it into a blazing-fast, cross-platform application.
 
-If you deploy it using GitHub Pages or another static hosting provider, make sure the frontend is configured to use the correct backend API URL.
-
-### Backend and Database
-
-The backend uses Node.js and Express, with PostgreSQL for persistent storage.
-
-Configure the backend's database connection and required environment variables before starting the application. Keep database credentials out of source control.
-
-The frontend, backend, and Voice Journal service are separate components, so each must be configured to communicate with the correct endpoint.
-
-## Roadmap
-
+**My next goals are:**
 - 🤖 **Image Analyzer**: AI-powered chart screenshot analysis.
 - 📱 **Voice-to-JSON Review UI**: A sleek, swipe-friendly interface to review and approve AI-extracted trade data before saving to the database (Human-in-the-loop confirmation).
 - 🚀 **Cross-Platform Apps**: Port the entire app to native desktop (Windows, macOS, Linux) and mobile (Android, iOS) using frameworks like Tauri or Flutter.
 - ⚡ **Performance & Speed**: Optimize database queries, add caching, and make the UI buttery smooth.
 - 🛠 **Advanced Trade Updates & Support**: More powerful trade editing features, plus full-time hours dedicated to fixing bugs and responding to community requests.
 
+> **Want to support the development?** You can send crypto directly to my wallets in the [Support section](#-support-this-project), or reach out to me for corporate partnerships. Every contribution brings this vision closer to reality!
 
-## Support the Project
+
+## 💰 Support This Project
 
 If you find TradeLog useful and want to support its development, you can contribute through the following wallets:
 
 - <img src="https://zengo.com/wp-content/uploads/USDT-BEP20-1.png" width="30"/> **USDT (BEP20):** `0xF6DA36c843bbb218422fee6f8798e2874c2baAC1`
 - <img src="https://assets.gemwallet.com/blockchains/tron/logo.png" width="30"/> **TRX (TRC20):** `TVxnAFuTmbXANaMvAadLipM6j78UPWT8QS`
-
-## Disclaimer
-
-TradeLog is a journaling and analysis tool, not financial advice. It does not guarantee profitable trading outcomes.
-
-## License
-
-See the repository for licensing information.
