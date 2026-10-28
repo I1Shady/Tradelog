@@ -32,14 +32,6 @@ TradeLog also includes **Voice Journal**, a companion service that converts Pers
 </p>
 
 ## Tech Stack
-<p align="center">
-  <img src="https://img.shields.io/badge/Frontend-HTML%20%7C%20CSS%20%7C%20JavaScript-F7DF1E?style=flat-square" alt="Frontend">
-  <img src="https://img.shields.io/badge/Backend-Node.js%20%7C%20Express-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Backend">
-  <img src="https://img.shields.io/badge/Database-PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL">
-  <img src="https://img.shields.io/badge/Voice%20Journal-Go-00ADD8?style=flat-square&logo=go&logoColor=white" alt="Go">
-  <img src="https://img.shields.io/badge/AI-DeepSeek%20API-4D6BFE?style=flat-square" alt="DeepSeek API">
-  <img src="https://img.shields.io/badge/Public%20API%20Access-ngrok-1F1E37?style=flat-square&logo=ngrok&logoColor=white" alt="Public API Access - ngrok">
-</p>
 | Component | Technology |
 |---|---|
 | Frontend | HTML, CSS, JavaScript |
