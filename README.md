@@ -198,8 +198,8 @@ The frontend, backend, and Voice Journal service are separate components, so eac
 
 If you find TradeLog useful and want to support its development, you can contribute through the following wallets:
 
-<img src="https://zengo.com/wp-content/uploads/USDT-BEP20-1.png" width="30"/> **USDT (BEP20):** `0xF6DA36c843bbb218422fee6f8798e2874c2baAC1`
-<img src="https://assets.gemwallet.com/blockchains/tron/logo.png" width="30"/> **TRX (TRC20):** `TVxnAFuTmbXANaMvAadLipM6j78UPWT8QS`
+-<img src="https://zengo.com/wp-content/uploads/USDT-BEP20-1.png" width="30"/> **USDT (BEP20):** `0xF6DA36c843bbb218422fee6f8798e2874c2baAC1`
+-<img src="https://assets.gemwallet.com/blockchains/tron/logo.png" width="30"/> **TRX (TRC20):** `TVxnAFuTmbXANaMvAadLipM6j78UPWT8QS`
 
 ## Disclaimer
 
