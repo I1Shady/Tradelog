@@ -32,7 +32,7 @@ function formatTradeRow(row) {
         mentalState: row.mental,
         strategy: row.strategy,
         mistakes: row.mistakes,
-        checklist: row.checklist,
+        checkItems: row.checklist,
         notes: row.notes,
         stopLoss: row.stop_loss,
         takeProfit: row.take_profit,
