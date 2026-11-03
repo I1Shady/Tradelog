@@ -1,7 +1,7 @@
 # TradeLog
 
 <div align="center">
-  <img src="./front/img/Patrick’s Neon Trading Night.png" alt="TradeLog Logo" width="400"/>
+  <img src="./front/public/Patrick.png" alt="TradeLog Logo" width="400"/>
   <h1>TradeLog - Smart Trading Journal</h1>
   <p>Your ultimate companion for tracking, analyzing, and improving your trades.</p>
   <p align="center">
@@ -32,11 +32,11 @@ TradeLog also includes **Voice Journal**, a companion service that converts Pers
 ## Screenshots
 
 <p align="center">
-  <img src="./front/img/screen-2.jpg" alt="TradeLog Dashboard" width="600">
+  <img src="./front/public/screen-2.jpg" alt="TradeLog Dashboard" width="600">
 </p>
 
 <p align="center">
-  <img src="./front/img/screen-1.jpg" alt="TradeLog Interface" width="600">
+  <img src="./front/public/screen-1.jpg" alt="TradeLog Interface" width="600">
 </p>
 
 ## Tech Stack
