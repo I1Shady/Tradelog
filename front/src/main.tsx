@@ -9,7 +9,7 @@ import './css/index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/Tradelog">
       <ThemeProvider>
         <App />
       </ThemeProvider>
