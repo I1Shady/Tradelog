@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors({
     origin: [
         "https://i1shady.github.io",
-        "http://localhost:5500"
+        "http://localhost:5173"
     ],
     credentials: true
 }));
