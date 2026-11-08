@@ -1,17 +1,67 @@
+
 import type { Trade } from "@/types/types";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 
+function getApiUrl(): string {
+    if (!API_BASE_URL) {
+        throw new Error("VITE_API_URL is not configured");
+    }
+
+    return API_BASE_URL.replace(/\/+$/, "");
+}
+
+async function handleResponse<T>(response: Response): Promise<T> {
+    if (!response.ok) {
+        let message = `Request failed: ${response.status}`;
+
+        try {
+            const body = await response.json();
+
+            if (body.error || body.message) {
+                message = body.error || body.message;
+            }
+        } catch {
+            // Keep the default error message.
+        }
+
+        throw new Error(message);
+    }
+
+    return response.json() as Promise<T>;
+}
+
+// Get all trades.
 export async function getTrades(): Promise<Trade[]> {
-  if (!API_BASE_URL) {
-    throw new Error("VITE_API_URL is not configured");
-  }
+    const response = await fetch(`${getApiUrl()}/api/trades`);
 
-  const response = await fetch(`${API_BASE_URL}/api/trades`);
+    return handleResponse<Trade[]>(response);
+}
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch trades: ${response.status}`);
-  }
+// Get one trade.
+export async function getTrade(id: number): Promise<Trade> {
+    const response = await fetch(
+        `${getApiUrl()}/api/trades/${id}`
+    );
 
-  return response.json();
+    return handleResponse<Trade>(response);
+}
+
+// Update an existing trade.
+export async function updateTrade(
+    id: number,
+    trade: Trade
+): Promise<Trade> {
+    const response = await fetch(
+        `${getApiUrl()}/api/trades/${id}`,
+        {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(trade),
+        }
+    );
+
+    return handleResponse<Trade>(response);
 }

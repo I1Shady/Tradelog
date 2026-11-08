@@ -409,3 +409,110 @@
     z-index: 1;
     filter: drop-shadow(-5px 0 #fff) drop-shadow(0 0 1px #000);
 }
+
+
+/* Trade Table */
+.trade-table-card {
+  --trade-border: rgba(148, 163, 184, 0.16);
+}
+
+/* Table header */
+.trade-table-card thead th {
+  background: #f1f5f9 !important;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.dark .trade-table-card thead th {
+  background: #22334c !important;
+  color: #a8b8cc;
+  border-bottom-color: rgba(255, 255, 255, 0.07);
+}
+
+/* Body cells */
+.trade-table-card tbody td {
+  height: 54px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 12px;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+/* Row hover */
+.trade-table-card tbody tr {
+  transition: background-color 160ms ease;
+}
+
+.trade-table-card tbody tr:hover td {
+  background-color: rgba(59, 130, 246, 0.045);
+}
+
+.dark .trade-table-card tbody tr:hover td {
+  background-color: rgba(96, 165, 250, 0.055);
+}
+
+/* Subtle row separators */
+.trade-table-card tbody tr:not(:last-child) td {
+  border-bottom-color: rgba(148, 163, 184, 0.12);
+}
+
+.dark .trade-table-card tbody tr:not(:last-child) td {
+  border-bottom-color: rgba(255, 255, 255, 0.055);
+}
+
+/* Scrollbar */
+.trade-table-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #94a3b8 transparent;
+}
+
+.trade-table-scroll::-webkit-scrollbar {
+  height: 7px;
+}
+
+.trade-table-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.trade-table-scroll::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 999px;
+}
+
+.trade-table-scroll::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+.dark .trade-table-scroll {
+  scrollbar-color: #475569 transparent;
+}
+
+.dark .trade-table-scroll::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+.dark .trade-table-scroll::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .trade-table-card tbody td {
+    height: 48px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 11px;
+  }
+
+  .trade-table-card thead th {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 10px;
+  }
+}

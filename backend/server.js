@@ -1,24 +1,27 @@
+
 import express from "express";
 import cors from "cors";
 import { pool } from "./db.js";
 
 const app = express();
+
 app.use(express.json());
 
-//Cors
-app.use(cors({
-    origin: [
-        "https://i1shady.github.io",
-        "http://localhost:5173"
-    ],
-    credentials: true
-}));
+app.use(
+    cors({
+        origin: [
+            "https://i1shady.github.io",
+            "http://localhost:5173",
+        ],
+        credentials: true,
+    })
+);
 
-// Row change
+// Convert database row to frontend Trade.
 function formatTradeRow(row) {
     return {
         id: row.id,
-        date: row.trade_date, 
+        date: row.trade_date,
         symbol: row.symbol,
         exchange: row.exchange,
         timeframe: row.timeframe,
@@ -40,46 +43,55 @@ function formatTradeRow(row) {
         positionToAcc: row.position_pct,
         pnl: row.pnl_amount,
         status: row.pnl_amount !== null ? "closed" : "open",
-        exitType: row.pnl_result
+        exitType: row.pnl_result,
     };
 }
 
-// root
+// Root.
 app.get("/", (req, res) => {
     res.json({ message: "TradeLog API is running" });
 });
 
-// Get all trades
+// Get all trades.
 app.get("/api/trades", async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM journal_entries ORDER BY id DESC');
-        const formattedTrades = result.rows.map(formatTradeRow); 
-        res.json(formattedTrades);
+        const result = await pool.query(
+            "SELECT * FROM journal_entries ORDER BY id DESC"
+        );
+
+        res.json(result.rows.map(formatTradeRow));
     } catch (err) {
-        console.error('GET /api/trades error:', err);
-        res.status(500).json({ error: 'internal error' });
+        console.error("GET /api/trades error:", err);
+        res.status(500).json({ error: "internal error" });
     }
 });
 
-// Get 1 trade
+// Get one trade.
 app.get("/api/trades/:id", async (req, res) => {
     try {
-        const id = parseInt(req.params.id);
-        const result = await pool.query('SELECT * FROM journal_entries WHERE id = $1', [id]);
+        const id = Number.parseInt(req.params.id, 10);
+
+        if (!Number.isInteger(id)) {
+            return res.status(400).json({ error: "Invalid trade ID" });
+        }
+
+        const result = await pool.query(
+            "SELECT * FROM journal_entries WHERE id = $1",
+            [id]
+        );
 
         if (result.rows.length === 0) {
             return res.status(404).json({ message: "Trade not found" });
         }
 
-        const formattedTrade = formatTradeRow(result.rows[0]);
-        res.json(formattedTrade);
+        res.json(formatTradeRow(result.rows[0]));
     } catch (err) {
-        console.error('GET /api/trades/:id error:', err);
-        res.status(500).json({ error: 'internal error' });
+        console.error("GET /api/trades/:id error:", err);
+        res.status(500).json({ error: "internal error" });
     }
 });
 
-//Add new trades
+// Add a new trade.
 app.post("/api/trades", async (req, res) => {
     try {
         const b = req.body;
@@ -118,29 +130,120 @@ app.post("/api/trades", async (req, res) => {
                 b.position_pct ?? null,
                 b.pnl_amount ?? null,
                 b.pnl_currency ?? null,
-                b.pnl_result ?? null
+                b.pnl_result ?? null,
             ]
         );
 
-        res.status(201).json(result.rows[0]);
+        res.status(201).json(formatTradeRow(result.rows[0]));
     } catch (err) {
-        console.error('POST /api/trades error:', err);
-        res.status(500).json({ error: 'internal error' });
+        console.error("POST /api/trades error:", err);
+        res.status(500).json({ error: "internal error" });
     }
 });
 
-// ============================================
-// START
-// ============================================
+// Update an existing trade.
+app.put("/api/trades/:id", async (req, res) => {
+    try {
+        const id = Number.parseInt(req.params.id, 10);
 
+        if (!Number.isInteger(id)) {
+            return res.status(400).json({ error: "Invalid trade ID" });
+        }
+
+        const fieldMap = {
+            date: "trade_date",
+            symbol: "symbol",
+            exchange: "exchange",
+            timeframe: "timeframe",
+            side: "side",
+            entryPrice: "entry_price",
+            positionMargin: "margin",
+            leverage: "leverage",
+            orderValue: "order_value",
+            orderType: "order_type",
+            entryScreenshot: "entry_screenshot",
+            mentalState: "mental",
+            strategy: "strategy",
+            mistakes: "mistakes",
+            checkItems: "checklist",
+            notes: "notes",
+            stopLoss: "stop_loss",
+            takeProfit: "take_profit",
+            exitScreenshot: "exit_screenshot",
+            positionToAcc: "position_pct",
+            pnl: "pnl_amount",
+            exitType: "pnl_result",
+        };
+
+        const entries = Object.entries(req.body).filter(
+            ([key, value]) =>
+                key !== "id" &&
+                key !== "status" &&
+                Object.hasOwn(fieldMap, key) &&
+                value !== undefined
+        );
+
+        if (entries.length === 0) {
+            return res.status(400).json({
+                error: "No valid fields provided",
+            });
+        }
+
+        const values = [];
+        const setClauses = [];
+
+        for (const [key, value] of entries) {
+            const column = fieldMap[key];
+
+            const normalizedValue =
+                key === "checkItems" && value !== null
+                    ? JSON.stringify(value)
+                    : value;
+
+            values.push(normalizedValue);
+
+            setClauses.push(
+                `"${column}" = $${values.length}`
+            );
+        }
+
+        values.push(id);
+
+        const query = `
+            UPDATE journal_entries
+            SET ${setClauses.join(", ")}
+            WHERE id = $${values.length}
+            RETURNING *
+        `;
+
+        const result = await pool.query(query, values);
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({
+                message: "Trade not found",
+            });
+        }
+
+        res.json(formatTradeRow(result.rows[0]));
+    } catch (err) {
+        console.error("PUT /api/trades/:id error:", err);
+
+        res.status(500).json({
+            error: "Failed to update trade",
+        });
+    }
+});
+
+// Start server.
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, "0.0.0.0", async () => {
-    console.log(`✅ Server running on port ${PORT}`);
+    console.log(`Server running on port ${PORT}`);
+
     try {
-        await pool.query('SELECT NOW()');
-        console.log('✅ Connected to PostgreSQL');
+        await pool.query("SELECT NOW()");
+        console.log("Connected to PostgreSQL");
     } catch (err) {
-        console.error('❌ Failed to connect to PostgreSQL:', err.message);
+        console.error("Failed to connect to PostgreSQL:", err.message);
     }
 });
