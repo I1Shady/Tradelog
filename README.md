@@ -4,7 +4,7 @@
   <img src="./front/public/Patrick.png" alt="TradeLog Logo" width="400"/>
   <h1>TradeLog - Smart Trading Journal</h1>
   <p>Your ultimate companion for tracking, analyzing, and improving your trades.</p>
-  [Demo](https://i1shady.github.io/Tradelog/)
+  
   <p align="center">
   <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
@@ -24,6 +24,14 @@
 Instead of relying on memory or scattered notes, traders can record their setups, document their reasoning, review their performance, and identify patterns in their decisions.
 
 TradeLog also includes **Voice Journal**, a companion service that converts Persian voice notes into structured trading journal entries using speech recognition and AI-powered data extraction.
+
+<div align="center">
+
+  <a href="https://YOUR-DEMO-URL.com">
+    <img src="https://img.shields.io/badge/Live-Demo-2ea44f?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Demo">
+  </a>
+
+</div>
 
 ## 🚀 Features
 - **Voice Journal**: Skip the boring manual data entry! Just speak your thoughts out loud (like talking to yourself) while opening a position on the chart, and AI will automatically extract and record the entire trade details for you.
