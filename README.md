@@ -4,6 +4,7 @@
   <img src="./front/public/Patrick.png" alt="TradeLog Logo" width="400"/>
   <h1>TradeLog - Smart Trading Journal</h1>
   <p>Your ultimate companion for tracking, analyzing, and improving your trades.</p>
+  [Demo](https://i1shady.github.io/Tradelog/)
   <p align="center">
   <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
