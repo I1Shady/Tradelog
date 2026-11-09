@@ -27,7 +27,7 @@ TradeLog also includes **Voice Journal**, a companion service that converts Pers
 
 <div align="center">
 
-  <a href="https://YOUR-DEMO-URL.com">
+  <a href="https://i1shady.github.io/Tradelog/">
     <img src="https://img.shields.io/badge/Live-Demo-2ea44f?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Demo">
   </a>
 
