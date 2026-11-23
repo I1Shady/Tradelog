@@ -104,17 +104,20 @@ TradeLog brings your trade records and performance review together:
 
 The AI does not silently add a trade to your journal. You stay in control: review the extracted information, make any corrections, and save it when it's ready.
 
-## Tech Stack
+## Customize the AI Prompt
 
-| Area | Technology |
-|---|---|
-| Frontend | React, TypeScript, Vite |
-| Styling | Tailwind CSS |
-| UI | Base UI, Lucide |
-| Backend | Node.js, Express |
-| Database | SQLite, better-sqlite3 |
-| Speech-to-Text | OpenRouter — Whisper |
-| AI Trade Extraction | OpenRouter — DeepSeek V4.1 Flash |
+TradeLog's voice-to-trade extraction instructions are kept in **`front/src/lib/prompts.ts`**. You can adapt this prompt to match the way you trade instead of being locked into a one-size-fits-all template.
+
+For example, you can:
+
+- Replace the default **Dow Theory** framework with your own trading strategy.
+- Change the entry checklist to reflect the conditions you actually look for before opening a position.
+- Add, remove, or rename checklist criteria to match your process—for example, trend direction, volume confirmation, higher-timeframe alignment, or BTC correlation.
+- Adjust the extraction instructions so the AI understands the terminology and decision-making rules used in your own strategy.
+
+The prompt defines the structure and rules the AI follows when turning your voice transcript into a trade draft. Keep its expected JSON fields and checklist keys aligned with the data structure used by the application when making changes.
+
+This makes the journal adaptable to different trading styles and personal entry rules, rather than forcing every trader to follow the same checklist.
 
 ## Getting Started
 
