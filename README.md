@@ -65,14 +65,16 @@ TradeLog brings your trade records and performance review together:
 - **Trading Checklist** — Track whether your key conditions were met.
 - **Light and Dark Themes** — Choose the interface that works best for you.
 
-## Screenshots
+## Demo
+
+See TradeLog in action. This short preview highlights the core Voice Journal workflow—from recording your thoughts to reviewing the AI-generated trade details.
 
 <p align="center">
-  <img src="./front/public/screen-2.jpg" alt="TradeLog dashboard" width="800" />
+  <img src="./docs/demo-preview.gif" alt="TradeLog Voice Journal demo" width="800" />
 </p>
 
 <p align="center">
-  <img src="./front/public/screen-1.jpg" alt="TradeLog journal interface" width="800" />
+  <a href="https://i1shady.github.io/Tradelog/">Try the Live Demo</a>
 </p>
 
 ## How Voice Journal works
