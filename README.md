@@ -73,9 +73,7 @@ See TradeLog in action. This short preview highlights the core Voice Journal wor
   <img src="./docs/demo-preview.gif" alt="TradeLog Voice Journal demo" width="800" />
 </p>
 
-<p align="center">
-  <a href="https://i1shady.github.io/Tradelog/">Try the Live Demo</a>
-</p>
+
 
 ## How Voice Journal works
 
