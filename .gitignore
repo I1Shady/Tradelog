@@ -1,1 +1,15 @@
+# Environment secrets
 backend/.env
+front/.env
+front/.env.local
+front/.env.*.local
+
+# Local databases and SQLite sidecar files
+backend/tradelog.db
+backend/tradelog.db-shm
+backend/tradelog.db-wal
+
+# Dependencies and build output
+node_modules/
+front/node_modules/
+front/dist/
