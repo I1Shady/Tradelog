@@ -1,13 +1,27 @@
 import express from "express";
 import "dotenv/config";
 import cors from "cors";
-import bcrypt from "bcryptjs";
-import { createHash, randomBytes } from "node:crypto";
+import { createHash, randomBytes, scrypt as scryptCallback, timingSafeEqual } from "node:crypto";
+import { promisify } from "node:util";
 import { db } from "./db.js";
 
 const app = express();
 const PORT = Number(process.env.PORT || 5000);
 const SESSION_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+const scrypt = promisify(scryptCallback);
+
+async function hashPassword(password) {
+  const salt = randomBytes(16);
+  const key = await scrypt(password, salt, 64);
+  return `scrypt:${salt.toString("hex")}:${Buffer.from(key).toString("hex")}`;
+}
+async function verifyPassword(password, storedHash) {
+  const [algorithm, saltHex, keyHex] = String(storedHash).split(":");
+  if (algorithm !== "scrypt" || !saltHex || !keyHex) return false;
+  const expected = Buffer.from(keyHex, "hex");
+  const actual = Buffer.from(await scrypt(password, Buffer.from(saltHex, "hex"), expected.length));
+  return expected.length === actual.length && timingSafeEqual(expected, actual);
+}
 const isProduction = process.env.NODE_ENV === "production";
 const allowedOrigins = new Set(
   (process.env.FRONTEND_ORIGINS || "https://i1shady.github.io,http://localhost:5173,http://127.0.0.1:5173")
@@ -102,7 +116,7 @@ app.post("/api/auth/register", authLimit, async (req, res) => {
       return res.status(400).json({ error: "Enter a valid email address." });
     if (password.length < 10 || password.length > 128)
       return res.status(400).json({ error: "Password must be between 10 and 128 characters." });
-    const passwordHash = await bcrypt.hash(password, 12);
+    const passwordHash = await hashPassword(password);
     const result = db.prepare("INSERT INTO users (email, password_hash) VALUES (?, ?)").run(email, passwordHash);
     const user = db.prepare("SELECT id, email, created_at FROM users WHERE id = ?").get(result.lastInsertRowid);
     createSession(user.id, res);
@@ -119,7 +133,7 @@ app.post("/api/auth/login", authLimit, async (req, res) => {
     const email = String(req.body?.email || "").trim().toLowerCase();
     const password = String(req.body?.password || "");
     const user = db.prepare("SELECT id, email, password_hash, created_at FROM users WHERE email = ? COLLATE NOCASE").get(email);
-    if (!user || !(await bcrypt.compare(password, user.password_hash)))
+    if (!user || !(await verifyPassword(password, user.password_hash)))
       return res.status(401).json({ error: "Invalid email or password." });
     createSession(user.id, res);
     res.json({ user: publicUser(user) });
