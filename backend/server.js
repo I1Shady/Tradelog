@@ -29,7 +29,12 @@ const allowedOrigins = new Set(
 );
 
 app.disable("x-powered-by");
-app.use(express.json({ limit: "50mb" }));
+// Render and similar platforms sit behind one trusted reverse proxy.
+if (isProduction) app.set("trust proxy", 1);
+app.use((req, res, next) => {
+  const limit = req.path === "/api/transcribe" ? "50mb" : "1mb";
+  express.json({ limit })(req, res, next);
+});
 app.use(cors({
   origin(origin, callback) {
     if (!origin || allowedOrigins.has(origin.replace(/\/$/, ""))) return callback(null, true);
