@@ -373,8 +373,10 @@ function VoiceJournalPage() {
         `${API_BASE_URL}/api/transcribe`,
         {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
           },
           body: JSON.stringify({
             audio: base64Audio,
@@ -421,8 +423,10 @@ function VoiceJournalPage() {
         `${API_BASE_URL}/api/process-voice`,
         {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
           },
           body: JSON.stringify({
             transcript,
@@ -511,8 +515,10 @@ function VoiceJournalPage() {
         `${API_BASE_URL}/api/trades`,
         {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest",
           },
           body: JSON.stringify(payload),
         }
