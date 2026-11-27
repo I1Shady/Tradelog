@@ -119,7 +119,19 @@ The prompt defines the structure and rules the AI follows when turning your voic
 
 This makes the journal adaptable to different trading styles and personal entry rules, rather than forcing every trader to follow the same checklist.
 
-## Getting Started
+## Accounts & Private Journals
+
+TradeLog supports separate accounts. Each user signs up with an email and password, and the API scopes every trade read/write to the authenticated account. Passwords are stored as salted scrypt hashes; sessions use random, server-side tokens stored as hashes and delivered through HttpOnly cookies.
+
+Existing journal rows are deliberately left unassigned during the database migration. After creating your own account, assign legacy rows once from the backend directory with:
+
+```bash
+npm run assign-legacy-trades -- your-email@example.com
+```
+
+Run this only for the account that should own the existing records. Do not run it after users have begun importing their own trades.
+
+For production, set `NODE_ENV=production`, `FRONTEND_ORIGINS` to the exact frontend origin(s), and persist the SQLite database file. Because browser third-party-cookie restrictions can block cookies between unrelated hosting domains (for example GitHub Pages and Render), deploy the frontend and API on the same site/origin (or behind a same-site reverse proxy) for reliable sign-in.
 
 ### Requirements
 
@@ -140,6 +152,8 @@ Create a `.env` file inside the `backend` directory:
 ```env
 OPENROUTER_API_KEY=your_openrouter_api_key
 PORT=5000
+NODE_ENV=development
+FRONTEND_ORIGINS=http://localhost:5173,https://i1shady.github.io
 ```
 
 Then install the dependencies and start the server:
