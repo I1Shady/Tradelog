@@ -79,7 +79,7 @@ function JournalPage() {
         };
     }, []);
 
-    // Update trade directly in PostgreSQL.
+    // Update this user's trade in SQLite.
     const handleUpdateTrade = async (updatedTrade: Trade) => {
         const savedTrade = await updateTrade(
             updatedTrade.id,
